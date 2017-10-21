@@ -1,0 +1,7 @@
+---
+- name: Install Nginx
+  become: true
+  action: apt pkg={{item}} state=present
+  with_items:
+    - nginx
+    - python-certbot-nginx

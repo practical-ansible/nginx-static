@@ -1,0 +1,31 @@
+---
+- name: Find certificate
+  become: true
+  stat:
+    path: '{{ssl_certificate_key_path}}'
+  register: cert_file
+
+- name: 'Configure site {{nginx_static_project_name}}'
+  become: true
+  template:
+    src: nginx.conf
+    dest: '/etc/nginx/sites-available/{{project_config_name}}'
+  notify:
+    - reload nginx
+
+- name: 'Enable site {{nginx_static_project_name}}'
+  become: true
+  file:
+    state: '{{ nginx_static_enabled | ternary("link", "absent")}}'
+    src: '/etc/nginx/sites-available/{{project_config_name}}'
+    dest: '/etc/nginx/sites-enabled/{{project_config_name}}'
+  notify:
+    - reload nginx
+
+- name: 'Configure Letsencrypt for {{nginx_static_project_name}}'
+  become: true
+  shell: 'certbot -n --nginx --agree-tos --domains {{nginx_static_server_name.split(" ") | join(",")}}'
+  changed_when: '"Keeping" not in result.stdout'
+  register: result
+  when:
+    - cert_file.stat.exists == False
