@@ -13,6 +13,7 @@
   synchronize:
     src: '{{nginx_static_directory}}'
     dest: '{{dir_next_version}}'
+    recursive: true
 
 - name: Link the deployed version
   file:

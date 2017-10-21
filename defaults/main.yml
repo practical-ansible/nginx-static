@@ -1,5 +1,6 @@
 ---
 nginx_static_directory: '{{ lookup("env", "NGINX_STATIC_DIRECTORY") }}'
+nginx_static_enabled: True
 nginx_static_project_environment: '{{ lookup("env", "NGINX_STATIC_PROJECT_ENVIRONMENT") | default("develop") }}'
 nginx_static_project_name: '{{ lookup("env", "NGINX_STATIC_PROJECT_NAME") }}'
 nginx_static_projects_directory: '/var/www'
