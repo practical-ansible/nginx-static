@@ -1,0 +1,7 @@
+---
+nginx_static_django_archive: ''
+nginx_static_project_name: ''
+nginx_static_server_name: ''
+nginx_static_version: 'develop'
+nginx_static_project_environment: 'staging'
+nginx_static_projects_directory: '/var/www'
