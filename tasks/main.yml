@@ -12,6 +12,7 @@
     dir_project_environment_versions: '{{dir_project_environment}}/versions'
     dir_next_version: '{{dir_project_environment}}/versions/{{nginx_static_version}}'
     link_current: '{{dir_project_environment}}/current'
+    nginx_config_path: '/etc/nginx/sites-available/{{project_config_name}}.conf'
     ssl_certificate_path: '{{dir_ssl_certificate}}/fullchain.pem'
     ssl_certificate_key_path: '{{dir_ssl_certificate}}/privkey.pem'
 

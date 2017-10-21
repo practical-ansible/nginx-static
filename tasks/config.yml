@@ -9,7 +9,17 @@
   become: true
   template:
     src: nginx.conf
-    dest: '/etc/nginx/sites-available/{{project_config_name}}'
+    dest: '{{nginx_config_path}}'
+  when: cert_file.stat.exists == False
+  notify:
+    - reload nginx
+
+- name: 'Configure site SSL {{nginx_static_project_name}}'
+  become: true
+  template:
+    src: nginx-ssl.conf
+    dest: '{{nginx_config_path}}'
+  when: cert_file.stat.exists == True
   notify:
     - reload nginx
 
@@ -17,8 +27,8 @@
   become: true
   file:
     state: '{{ nginx_static_enabled | ternary("link", "absent")}}'
-    src: '/etc/nginx/sites-available/{{project_config_name}}'
-    dest: '/etc/nginx/sites-enabled/{{project_config_name}}'
+    src: '{{nginx_config_path}}'
+    dest: '/etc/nginx/sites-enabled/{{project_config_name}}.conf'
   notify:
     - reload nginx
 
