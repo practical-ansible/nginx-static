@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Pavel Žák
-  description: Upload statice content on your Nginx
+  description: Upload static content on your Nginx
   license: MIT
   min_ansible_version: 2.4
   platforms:

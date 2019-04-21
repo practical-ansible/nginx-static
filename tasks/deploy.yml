@@ -1,22 +1,22 @@
 ---
 - name: Create directories
   file:
-    path: '{{item}}'
+    path: '{{ item }}'
     state: directory
   with_items:
-    - '{{dir_project}}'
-    - '{{dir_project_environment}}'
-    - '{{dir_project_environment_versions}}'
-    - '{{dir_next_version}}'
+    - '{{ dir_project }}'
+    - '{{ dir_project_environment }}'
+    - '{{ dir_project_environment_versions }}'
+    - '{{ dir_next_version }}'
 
 - name: Sync files
   synchronize:
-    src: '{{nginx_static_directory}}'
-    dest: '{{dir_next_version}}'
+    src: '{{ nginx_static_directory }}'
+    dest: '{{ dir_next_version }}'
     recursive: true
 
 - name: Link the deployed version
   file:
     state: link
-    src: '{{dir_next_version}}'
-    dest: '{{link_current}}'
+    src: '{{ dir_next_version }}'
+    dest: '{{ link_current }}'
