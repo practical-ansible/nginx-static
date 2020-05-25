@@ -1,0 +1,5 @@
+---
+# @var dir_src:description: >
+# Location of the directory that will be deployed to remote host as a static
+# site. Can be absolute or relative.
+dir_src: ''

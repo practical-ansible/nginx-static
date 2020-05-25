@@ -1,11 +1,37 @@
-# Practical Ansible Nginx static site
+# nginx_static
 
-[![Integration](https://github.com/practical-ansible/nginx-docker/workflows/CI/badge.svg)](https://github.com/practical-ansible/nginx-docker/actions)
-[![Quality](https://img.shields.io/ansible/quality/21429.svg)](https://galaxy.ansible.com/practical-ansible/nginx-static)
-[![Downloads](https://img.shields.io/ansible/role/d/21429.svg)](https://galaxy.ansible.com/practical-ansible/nginx-static)
+Upload static content on your Nginx
 
-Deploy static HTML site to your Nginx and give it Lets Encrypt support.
+## Table of content
 
-## Variables
+* [Default Variables](#default-variables)
+  * [dir_src](#dir_src)
+* [Dependencies](#dependencies)
+* [License](#license)
+* [Author](#author)
 
-* `dir_src` - Path to directory that will be synced to the remote machine.
+---
+
+## Default Variables
+
+### dir_src
+
+Location of the directory that will be deployed to remote host as a static site. Can be absolute or relative.
+
+#### Default value
+
+```YAML
+dir_src: ''
+```
+
+## Dependencies
+
+* {'role': 'practical-ansible.nginx_project'}
+
+## License
+
+MIT
+
+## Author
+
+Pavel Žák
