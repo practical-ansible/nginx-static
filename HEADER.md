@@ -8,4 +8,4 @@ Deploy static HTML site to your Nginx and give it Lets Encrypt support.
 
 ## Variables
 
-* `dir_src` - Path to directory that will be synced to the remote machine.
+* `dir_source` - Path to directory that will be synced to the remote machine.

@@ -5,7 +5,7 @@ Upload static content on your Nginx
 ## Table of content
 
 * [Default Variables](#default-variables)
-  * [dir_src](#dir_src)
+  * [dir_source](#dir_source)
 * [Dependencies](#dependencies)
 * [License](#license)
 * [Author](#author)
@@ -14,14 +14,14 @@ Upload static content on your Nginx
 
 ## Default Variables
 
-### dir_src
+### dir_source
 
 Location of the directory that will be deployed to remote host as a static site. Can be absolute or relative.
 
 #### Default value
 
 ```YAML
-dir_src: ''
+dir_source: ''
 ```
 
 ## Dependencies
