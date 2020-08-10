@@ -35,4 +35,3 @@
     src: '{{ dir_next_version }}'
     dest: '{{ link_current }}'
   notify: reload nginx
-
